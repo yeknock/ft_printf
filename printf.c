@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
 int	putchar(int c)
 {
@@ -23,7 +22,21 @@ int	putstr(char *str)
 }
 
 
-int	printf_format(char c, va_list ap_)
+
+int	print_digit(int a)
+{
+	char	*s;
+	int		count;
+
+	count = 0;
+	s = ft_itoa(a);
+	count = putstr(s);
+	return (count);
+}
+
+
+
+static	int	printf_format(char c, va_list ap_)
 {
 	int	count;
 
@@ -31,6 +44,18 @@ int	printf_format(char c, va_list ap_)
 	if (c == 'c')
 		count += putchar(va_arg(ap_, int));
 	else if (c == 's')
+		count += putstr(va_arg(ap_, char *));
+	else if (c == 'd')
+		count += print_digit(va_arg(ap_, int));
+	else if (c == 'i')
+		count += putstr(va_arg(ap_, char *));
+	else if (c == 'u')
+		count += putstr(va_arg(ap_, char *));
+	else if (c == 'x')
+		count += putstr(va_arg(ap_, char *));
+	else if (c == 'X')
+		count += putstr(va_arg(ap_, char *));
+	else if (c == '%')
 		count += putstr(va_arg(ap_, char *));
 	else
 		count += write(1, &c, 1);
@@ -66,9 +91,7 @@ int	ft_printf(const char *p, ...)
 
 int main()
 {
-	int count = ft_printf("Hello %s %c %s \n", "String", 'x', "isdvn");
-	int d = printf("%d\n", count);
-	printf("%d", d);
+	ft_printf("Hello I'm %d", 13);
 
 	return (0);
 }
