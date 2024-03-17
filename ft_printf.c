@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/17 17:16:40 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/03/17 17:17:43 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include "ft_printf.h"
-
 
 static	int	printf_format(char c, va_list ap_)
 {
@@ -20,11 +31,10 @@ static	int	printf_format(char c, va_list ap_)
 	return (count);
 }
 
-
 int	ft_printf(const char *p, ...)
 {
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 	va_list	ap;
 
 	i = 0;
@@ -41,11 +51,6 @@ int	ft_printf(const char *p, ...)
 	va_end(ap);
 	return (count);
 }
-
-
-
-
-
 
 // int main()
 // {

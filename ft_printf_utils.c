@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/17 17:20:15 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/03/17 17:20:43 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_putchar(char c)
@@ -5,7 +17,6 @@ int	ft_putchar(char c)
 	write(1, &c, 1);
 	return (1);
 }
-
 
 int	ft_putstr(char *str)
 {
@@ -22,8 +33,7 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-
-int print_digit(int d)
+int	print_digit(int d)
 {
 	int		count;
 	char	*str;
