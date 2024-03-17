@@ -2,8 +2,7 @@
 
 int	ft_putchar(char c)
 {
-	if (c >= 32)
-		write(1, &c, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
@@ -13,6 +12,8 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (write(1, "(null)", 6));
 	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);

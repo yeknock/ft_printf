@@ -47,9 +47,9 @@ int	ft_printf(const char *p, ...)
 
 
 
-int main()
-{
-	ft_printf(" %c %c %c", 'c', 'v', 'b');
+// int main()
+// {
+// 	ft_printf(" %c %c %c", 'c', 'v', 'b');
 
-	return (0);
-}
+// 	return (0);
+// }
