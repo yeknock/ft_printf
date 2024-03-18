@@ -18,16 +18,16 @@ static	int	int_len(unsigned int n)
 static	char	letters_check(int remainder)
 {
 	if (remainder == 10)
-		return ('a');
+		return ('A');
 	else if (remainder == 11)
-		return ('b');
+		return ('B');
 	else if (remainder == 12)
-		return ('c');
+		return ('C');
 	else if (remainder == 13)
-		return ('d');
+		return ('D');
 	else if (remainder == 14)
-		return ('e');
-	return ('f');
+		return ('E');
+	return ('F');
 }
 
 static	char	*string_reverse(char *str)
@@ -55,7 +55,7 @@ static	char	*string_reverse(char *str)
 	return (0);
 }
 
-static	char	*hex_lower(unsigned int n)
+static  char	*hex_upper(unsigned int n)
 {
 	char	*str;
 	int		rem;
@@ -79,7 +79,7 @@ static	char	*hex_lower(unsigned int n)
 	return (string_reverse(str));
 }
 
-int	put_hex_lower(unsigned int num)
+int	put_hex_upper(unsigned int num)
 {
 	unsigned	int	i;
 	char	*str;
@@ -91,7 +91,7 @@ int	put_hex_lower(unsigned int num)
 		c = '0';
 		return (write(1, &c, 1));
 	}
-	str = hex_lower(num);
+	str = hex_upper(num);
 	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);

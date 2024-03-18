@@ -23,9 +23,10 @@ int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		print_digit(int d);
 int		print_unsigned_digit(unsigned int num);
+int		put_hex_lower(unsigned int num);
+int     put_hex_upper(unsigned int num);
 char	*ft_itoa(int n);
 char	*ft_unsigned_itoa(unsigned int n);
-char	*hex_lower(int n);
 char	*ft_strdup(const char *str);
 size_t	ft_strlen(const char *str);
 
