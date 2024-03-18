@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexnum_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 20:09:07 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/03/18 20:10:46 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/03/18 21:02:31 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/03/18 22:16:40 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	unsigned int	int_len(unsigned int n)
+static	unsigned int	int_len(unsigned long n)
 {
 	unsigned int	i;
 
@@ -27,19 +27,19 @@ static	unsigned int	int_len(unsigned int n)
 	return (i);
 }
 
-static	char	letters_check(int remainder)
+static	char	letters_check(unsigned long remainder)
 {
 	if (remainder == 10)
-		return ('A');
+		return ('a');
 	else if (remainder == 11)
-		return ('B');
+		return ('b');
 	else if (remainder == 12)
-		return ('C');
+		return ('c');
 	else if (remainder == 13)
-		return ('D');
+		return ('d');
 	else if (remainder == 14)
-		return ('E');
-	return ('F');
+		return ('e');
+	return ('f');
 }
 
 static	char	*string_reverse(char *str)
@@ -68,10 +68,10 @@ static	char	*string_reverse(char *str)
 	return (0);
 }
 
-static	char	*hex_upper(unsigned int n)
+static	char	*hex_lower(unsigned long n)
 {
 	char			*str;
-	int				rem;
+	unsigned int	rem;
 	unsigned int	i;
 
 	rem = 0;
@@ -93,24 +93,25 @@ static	char	*hex_upper(unsigned int n)
 	return (string_reverse(str));
 }
 
-int	put_hex_upper(unsigned int num)
+int	ft_putptr(unsigned long ptr)
 {
 	unsigned int	i;
 	char			*str;
 	char			c;
 
 	i = 0;
-	if (num == 0)
+	write(1, "0x", 2);
+	if (ptr == 0)
 	{
 		c = '0';
-		return (write(1, &c, 1));
+		return (write(1, &c, 1) + 2);
 	}
-	str = hex_upper(num);
+	str = hex_lower(ptr);
 	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);
 		i++;
 	}
 	free(str);
-	return (i);
+	return (i + 2);
 }

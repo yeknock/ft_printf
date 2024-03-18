@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hexnum_lowercase.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 20:06:15 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/03/18 20:08:56 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static	int	int_len(unsigned int n)
+static	unsigned int	int_len(unsigned int n)
 {
-	size_t	i;
+	unsigned int	i;
 
 	i = 0;
 	if (n == 0)
@@ -32,14 +44,15 @@ static	char	letters_check(int remainder)
 
 static	char	*string_reverse(char *str)
 {
-	unsigned	int	i;
-	unsigned	int	j;
+	unsigned int	i;
+	unsigned int	j;
+	char			*rev_str;
 
 	i = 0;
 	if (str)
 	{
 		j = ft_strlen(str) - 1;
-		char	*rev_str = (char *)malloc((sizeof(char) * ft_strlen(str)) + 1);
+		rev_str = (char *)malloc((sizeof(char) * ft_strlen(str)) + 1);
 		if (!rev_str)
 			return (0);
 		while (str[i] != '\0')
@@ -57,9 +70,9 @@ static	char	*string_reverse(char *str)
 
 static	char	*hex_lower(unsigned int n)
 {
-	char	*str;
-	int		rem;
-	unsigned	int	i;
+	char			*str;
+	int				rem;
+	unsigned int	i;
 
 	rem = 0;
 	i = 0;
@@ -76,14 +89,15 @@ static	char	*hex_lower(unsigned int n)
 		n = n / 16;
 		i++;
 	}
+	str[i] = '\0';
 	return (string_reverse(str));
 }
 
 int	put_hex_lower(unsigned int num)
 {
-	unsigned	int	i;
-	char	*str;
-	char	c;
+	unsigned int	i;
+	char			*str;
+	char			c;
 
 	i = 0;
 	if (num == 0)

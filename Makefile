@@ -1,6 +1,6 @@
 CC = cc
-FLAGS = -Wall -Wextra -Werror
-SOURCE = ft_printf.c ft_printf_utils.c ft_strdup.c ft_itoa.c ft_strlen.c ft_print_unsigned_digits.c ft_hexnum_lowercase.c ft_hexnum_uppercase.c
+FLAGS = -Wall -Wextra -Werror 
+SOURCE = ft_printf.c ft_printf_utils.c ft_strdup.c ft_itoa.c ft_strlen.c ft_print_unsigned_digits.c ft_hexnum_lowercase.c ft_hexnum_uppercase.c ft_putptr.c
 OBJECTS = $(SOURCE:.c=.o)
 NAME = libftprintf.a
 

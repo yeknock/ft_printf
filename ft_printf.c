@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
 static	int	printf_format(char c, va_list ap_)
@@ -22,6 +21,8 @@ static	int	printf_format(char c, va_list ap_)
 		count += ft_putchar(va_arg(ap_, int));
 	else if (c == 's')
 		count += ft_putstr(va_arg(ap_, char *));
+	else if (c == 'p')
+		count += ft_putptr((unsigned long)va_arg(ap_, unsigned long));
 	else if (c == 'd')
 		count += print_digit(va_arg(ap_, int));
 	else if (c == 'i')
@@ -60,8 +61,9 @@ int	ft_printf(const char *p, ...)
 
 // int main()
 // {
-// 	// ft_printf(" %x\n", 2568);
-// 	// int n = printf("%x ", 254);
-// 	ft_printf("%x\n", 14587);
+// 	char c = 'c';
+// 	char *ptr = &c;
+// 	ft_printf("%p ---- %d\n", ptr, 12);
+// 	printf("%p ---- %d\n", ptr, 12);
 // 	return (0);
 // }
