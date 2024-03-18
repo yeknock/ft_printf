@@ -26,6 +26,8 @@ static	int	printf_format(char c, va_list ap_)
 		count += print_digit(va_arg(ap_, int));
 	else if (c == 'i')
 		count += print_digit(va_arg(ap_, int));
+	else if (c == 'u')
+		count += print_unsigned_digit(va_arg(ap_, unsigned int));
 	else
 		count += write(1, &c, 1);
 	return (count);
@@ -54,7 +56,7 @@ int	ft_printf(const char *p, ...)
 
 // int main()
 // {
-// 	ft_printf(" %c %c %c", 'c', 'v', 'b');
+// 	ft_printf(" %s\n", "string");
 
 // 	return (0);
 // }

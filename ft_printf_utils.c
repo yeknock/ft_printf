@@ -44,3 +44,15 @@ int	print_digit(int d)
 	free(str);
 	return (count);
 }
+
+int	print_unsigned_digit(unsigned int num)
+{
+	int		count;
+	char	*str;
+
+	count = 0;
+	str = ft_unsigned_itoa((int)num);
+	count = ft_putstr(str);
+	free(str);
+	return (count);
+}
