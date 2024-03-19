@@ -9,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
-%.o: %.c
+%.o: %.c ft_printf.h Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
@@ -20,4 +20,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:  all clean fclean re $(NAME)
+.PHONY:  all clean fclean re  
